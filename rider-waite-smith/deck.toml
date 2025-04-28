@@ -1,0 +1,15 @@
+[deck]
+id = "rider-waite-smith"
+schema_version = "1.0"
+name = "Rider-Waite-Smith Tarot"
+version = "1.0"
+author = "Pamela Colman Smith"
+license = "Public Domain (original artwork), CC0 (digital restoration)"
+attribution = "Original artwork by Pamela Colman Smith (1909). Digital restoration by Luciella Elisabeth Scarlett (https://luciellaes.itch.io)."
+description = "The classic Rider-Waite-Smith tarot deck, first published in 1909 and illustrated by Pamela Colman Smith under the direction of Arthur Edward Waite. This digital version features cleaned and formatted images by Luciella Elisabeth Scarlett."
+aspect_ratio = 0.5694  # Based on the provided dimensions: 300/527
+created_date = "1909-12-01"
+updated_date = "2025-04-28"
+publisher = "Original: US Games Systems, Digital: Luciella Elisabeth Scarlett"
+website = "https://luciellaes.itch.io/rider-waite-smith-tarot-cards-cc0"
+tags = ["traditional", "classic", "beginner-friendly", "reference", "public-domain"]
