@@ -89,7 +89,7 @@ knight = "Knight of Pentacles"
 queen = "Queen of Pentacles"
 king = "King of Pentacles"
 
-[major_arcana.alt_text]
+[alt_text.major_arcana]
 00 = "A young person in colorful clothes steps off a cliff, carrying a white rose. A small dog jumps at their heels."
 01 = "A figure in robes stands before a table with symbols of the four suits. One hand holding a wand points to the sky, the other to the ground."
 02 = "A robed woman sits between two pillars, one black and one white, with a crescent moon at her feet and a scroll in her hand."
@@ -113,7 +113,7 @@ king = "King of Pentacles"
 20 = "An angel with wings blows a trumpet in the heavens, and people rise from coffins below."
 21 = "A dancing figure in a flowing purple veil is surrounded by a green wreath. At the corners are the four fixed zodiacal signs."
 
-[minor_arcana.wands.alt_text]
+[alt_text.minor_arcana.wands]
 ace = "A hand emerges from a cloud holding a sprouting wooden staff with leaves and stems growing from its top."
 two = "A figure in a robe stands on a hill holding two staves, looking out over the sea and distant landscapes."
 three = "A figure stands on a hill overlooking ships in a harbor, holding three wands and looking toward the horizon."
@@ -129,7 +129,7 @@ knight = "A knight in armor rides a rearing horse across a desert landscape, hol
 queen = "A crowned woman sits on a throne holding a sunflower and a staff. A black cat sits at her feet."
 king = "A crowned figure sits on a throne adorned with lions and salamanders, holding a flowering staff."
 
-[minor_arcana.cups.alt_text]
+[alt_text.minor_arcana.cups]
 ace = "A hand emerges from a cloud holding a cup or chalice, from which five streams flow like a fountain."
 two = "Two people face each other, each raising a cup in a toast. Above them float two caducei intertwined."
 three = "Three young women in flowing gowns dance together in celebration, each raising a cup."
@@ -145,7 +145,7 @@ knight = "A knight in decorative armor rides slowly on a white horse, extending 
 queen = "A crowned woman sits on a throne by water, holding an ornate closed cup and contemplating it deeply."
 king = "A king in robes sits on a throne by the sea, holding an elaborate cup and adorned with fish imagery."
 
-[minor_arcana.swords.alt_text]
+[alt_text.minor_arcana.swords]
 ace = "A hand emerges from a cloud holding a sword, the tip of which is crowned. Palm fronds adorn the sides."
 two = "A seated blindfolded woman holds two crossed swords, with her back to a body of water with rocks."
 three = "A heart pierced by three swords against a stormy, rainy background."
@@ -161,7 +161,7 @@ knight = "A knight in armor charges forward on a swift horse, sword raised for b
 queen = "A profile of a stern queen sitting on a throne, holding a sword upright in one hand and extending the other hand forward."
 king = "A king sits on a throne with a sword held upright, projecting authority and judgment."
 
-[minor_arcana.pentacles.alt_text]
+[alt_text.minor_arcana.pentacles]
 ace = "A hand emerging from a cloud holds a large golden pentacle or coin in a lush garden with lilies and a path."
 two = "A figure wearing a blindfold juggles two pentacles, each encircled by a lemniscate (infinity symbol)."
 three = "A craftsman examines his work on a cathedral stained glass window, observed by two monks or patrons."
@@ -177,5 +177,5 @@ knight = "A knight in armor sits atop a stationary black horse in a plowed field
 queen = "A queen sits in a lush garden with rabbits nearby, holding a pentacle and surrounded by flowers and growth."
 king = "A king sits on a throne adorned with bulls, holding a scepter and pentacle, overlooking a cultivated landscape."
 
-[card_backs.alt_text]
+[alt_text.card_backs]
 classic = "A blue and white geometric pattern with a rose design in the center"
