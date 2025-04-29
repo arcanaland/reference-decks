@@ -1,0 +1,14 @@
+[deck]
+id = "tarot-chiquto"
+schema_version = "1.0"
+name = "Tarot Chiquito"
+version = "1.0"
+author = "Adam Fidel"
+license = "CC0"
+attribution = "Adam Fidel"
+description = "Tiny 32-pixel tarot deck pairing retro charm with ease of use in digital and terminal environments"
+aspect_ratio = 0.625
+created_date = "2025-04-29"
+updated_date = "2025-04-29"
+website = "https://github.com/arcanaland/reference-decks"
+tags = ["terminal-friendly", "pixel-art", "reference", "public-domain"]
