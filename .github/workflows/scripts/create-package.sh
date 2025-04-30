@@ -10,21 +10,8 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
-# Format the package name similar to common software package conventions
-# You can choose one of these formats by uncommenting the preferred one:
-
-# Option 1: Simple format with version only
+# Format the package name
 PACKAGE_NAME="rider-waite-smith-${VERSION}"
-
-# Option 2: RPM-like format with version and build date
-# PACKAGE_NAME="rider-waite-smith-${VERSION}-${TIMESTAMP}"
-
-# Option 3: Debian-like format
-# PACKAGE_NAME="rider-waite-smith_${VERSION}_all"
-
-# Option a standard format
-# PACKAGE_NAME="rider-waite-smith-v${VERSION}"
-
 ZIP_FILE="${PACKAGE_NAME}.zip"
 
 # Create a temporary directory for packaging
@@ -36,7 +23,7 @@ mkdir -p "${DECK_DIR}"
 cp -r rider-waite-smith/* "${DECK_DIR}/"
 
 # Include metadata file with package info
-cat > "${DECK_DIR}/PACKAGE-INFO.txt" << EOL
+cat >"${DECK_DIR}/PACKAGE-INFO.txt" <<EOL
 Package: Rider-Waite-Smith Tarot Deck
 Version: ${VERSION}
 Build Date: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
@@ -46,8 +33,15 @@ Repository: ${GITHUB_REPOSITORY:-"arcanaland/specifications"}
 This package follows the Tarot Deck Specification v1.0.
 EOL
 
-# Create the zip file
-(cd "${TEMP_DIR}" && zip -r "${ZIP_FILE}" "${PACKAGE_NAME}")
+# Create the zip file and suppress the output
+(cd "${TEMP_DIR}" && zip -r "${ZIP_FILE}" "${PACKAGE_NAME}" >/dev/null)
+
+# Check if zip command was successful
+if [ $? -ne 0 ]; then
+  echo "ERROR: Failed to create zip file" >&2
+  rm -rf "${TEMP_DIR}"
+  exit 1
+fi
 
 # Move the zip file to the current directory
 mv "${TEMP_DIR}/${ZIP_FILE}" .
@@ -55,5 +49,6 @@ mv "${TEMP_DIR}/${ZIP_FILE}" .
 # Clean up the temporary directory
 rm -rf "${TEMP_DIR}"
 
-# Output the path to the zip file
+# Output just the filename, no other text
 echo "${ZIP_FILE}"
+

@@ -38,9 +38,21 @@ jobs:
       - name: Create package
         id: create_package
         run: |
-          OUTPUT=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
-          echo "PACKAGE_PATH=$OUTPUT" >> $GITHUB_ENV
-          echo "package_path=$OUTPUT" >> $GITHUB_OUTPUT
+          # Capture output in a variable
+          RESULT=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
+          # Check if script succeeded
+          if [ $? -ne 0 ]; then
+            echo "Error creating package"
+            exit 1
+          fi
+          # Check if file exists
+          if [ ! -f "$RESULT" ]; then
+            echo "Package file not found: $RESULT"
+            exit 1
+          fi
+          # Set outputs
+          echo "PACKAGE_PATH=$RESULT" >> $GITHUB_ENV
+          echo "package_path=$RESULT" >> $GITHUB_OUTPUT
 
       - name: Create Release
         id: create_release
@@ -63,3 +75,4 @@ jobs:
             - Created by: ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
