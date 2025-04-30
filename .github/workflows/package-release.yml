@@ -1,15 +1,20 @@
-name: Package and Release Tarot Deck
+name: Package and Release Tarot Decks
 
 permissions:
   contents: write
 
 on:
   workflow_dispatch:
+    inputs:
+      deck_name:
+        description: 'Deck to package (e.g., rider-waite-smith)'
+        required: true
+        default: 'rider-waite-smith'
   push:
     branches:
       - main
     tags:
-      - 'v*'
+      - '*/*'  # Matches tags like rider-waite-smith/v1.0
 
 jobs:
   build-and-release:
@@ -18,34 +23,72 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set deck name
+        id: deck
+        run: |
+          # Use input deck name for manual triggers, otherwise default to rider-waite-smith
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            DECK_NAME="${{ github.event.inputs.deck_name }}"
+          else
+            # For tag pushes, extract deck name from tag (e.g., rider-waite-smith/v1.0 -> rider-waite-smith)
+            if [[ "${{ github.ref_type }}" == "tag" ]]; then
+              TAG_NAME="${{ github.ref_name }}"
+              DECK_NAME=$(echo $TAG_NAME | cut -d'/' -f1)
+            else
+              # Default to rider-waite-smith for branch pushes
+              DECK_NAME="rider-waite-smith"
+            fi
+          fi
+          
+          echo "Using deck: $DECK_NAME"
+          echo "deck_name=$DECK_NAME" >> $GITHUB_OUTPUT
+
       - name: Extract version and package deck
         id: package
         run: |
-          VERSION=$(grep -E '^version\s*=\s*"[^"]+"' rider-waite-smith/deck.toml | sed -E 's/^version\s*=\s*"([^"]+)"/\1/')
+          DECK_NAME="${{ steps.deck.outputs.deck_name }}"
+          
+          # Make sure the deck directory exists
+          if [ ! -d "$DECK_NAME" ]; then
+            echo "Error: Deck directory '$DECK_NAME' not found!"
+            exit 1
+          fi
+          
+          VERSION=$(grep -E '^version\s*=\s*"[^"]+"' $DECK_NAME/deck.toml | sed -E 's/^version\s*=\s*"([^"]+)"/\1/')
           echo "Found version: $VERSION"
           
-          PACKAGE_NAME="rider-waite-smith-${VERSION}"
+          # Extract human-readable name from deck.toml
+          DISPLAY_NAME=$(grep -E '^name\s*=\s*"[^"]+"' $DECK_NAME/deck.toml | sed -E 's/^name\s*=\s*"([^"]+)"/\1/' || echo "$DECK_NAME")
+          echo "Display name: $DISPLAY_NAME"
+          
+          # Create package name
+          PACKAGE_NAME="${DECK_NAME}-${VERSION}"
           ZIP_FILE="${PACKAGE_NAME}.zip"
           echo "Creating package: $ZIP_FILE"
           
-          zip -r "${ZIP_FILE}" rider-waite-smith
+          # Create the zip file
+          zip -r "${ZIP_FILE}" $DECK_NAME
           ls -la "${ZIP_FILE}"
           
+          # Set output variables
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
+          echo "display_name=$DISPLAY_NAME" >> $GITHUB_OUTPUT
+          echo "tag_name=${{ steps.deck.outputs.deck_name}}/v${VERSION}" >> $GITHUB_OUTPUT
 
       - name: Create Release
         if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ steps.package.outputs.zip_file }}
-          name: Rider-Waite-Smith Tarot Deck v${{ steps.package.outputs.version }}
+          name: ${{ steps.package.outputs.display_name }} v${{ steps.package.outputs.version }}
+          tag_name: ${{ steps.package.outputs.tag_name }}
           draft: false
           prerelease: false
           body: |
-            Rider-Waite-Smith Tarot Deck v${{ steps.package.outputs.version }}
+            # ${{ steps.package.outputs.display_name }} Tarot Deck v${{ steps.package.outputs.version }}
             
-            This release contains the packaged Rider-Waite-Smith tarot deck version ${{ steps.package.outputs.version }} according to the Tarot Deck Specification.
+            This release contains the ${{ steps.package.outputs.display_name }} deck in the format described by the [Tarot Deck Specification](https://github.com/arcanaland/specifications).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
