@@ -1,9 +1,7 @@
 name: Package and Release Tarot Deck
 
 on:
-  # Manual trigger
   workflow_dispatch:
-  # Run on push to main branch with tag
   push:
     branches:
       - main
@@ -17,54 +15,35 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up environment
+      - name: Extract version and package deck
+        id: package
         run: |
-          mkdir -p .github/workflows/scripts
-          chmod +x .github/workflows/scripts/extract-version.sh
-          chmod +x .github/workflows/scripts/create-package.sh
-
-      - name: Extract version
-        id: version
-        run: |
-          VERSION=$(.github/workflows/scripts/extract-version.sh)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          VERSION=$(grep -E '^version\s*=\s*"[^"]+"' rider-waite-smith/deck.toml | sed -E 's/^version\s*=\s*"([^"]+)"/\1/')
+          echo "Found version: $VERSION"
+          
+          PACKAGE_NAME="rider-waite-smith-${VERSION}"
+          ZIP_FILE="${PACKAGE_NAME}.zip"
+          echo "Creating package: $ZIP_FILE"
+          
+          zip -r "${ZIP_FILE}" rider-waite-smith
+          ls -la "${ZIP_FILE}"
+          
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
 
-      - name: Get current time
-        id: current_time
-        run: |
-          echo "timestamp=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
-
-      - name: Create package
-        id: create_package
-        run: |
-          # Run the script and capture the output (which should be just the filename)
-          OUTPUT_FILE=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
-          
-          # Trim any whitespace
-          OUTPUT_FILE=$(echo "$OUTPUT_FILE" | xargs)
-          
-          echo "Generated package file: $OUTPUT_FILE"
-          
-          # Verify the file exists
-          if [ -f "$OUTPUT_FILE" ]; then
-            echo "File exists and is readable"
-            ls -la "$OUTPUT_FILE"
-            echo "package_path=$OUTPUT_FILE" >> $GITHUB_OUTPUT
-          else
-            echo "ERROR
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}', steps.version.outputs.version) }}
+      - name: Create Release
+        if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.package.outputs.zip_file }}
+          name: Rider-Waite-Smith Tarot Deck v${{ steps.package.outputs.version }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}', steps.package.outputs.version) }}
           draft: false
           prerelease: false
           body: |
-            Rider-Waite-Smith Tarot Deck v${{ steps.version.outputs.version }}
+            Rider-Waite-Smith Tarot Deck v${{ steps.package.outputs.version }}
             
-            This release contains the packaged Rider-Waite-Smith tarot deck according to the Tarot Deck Specification.
-            
-            **Package Information:**
-            - Version: ${{ steps.version.outputs.version }}
-            - Build Date: ${{ steps.current_time.outputs.timestamp }}
-            - Created by: ${{ github.actor }}
+            This release contains the packaged Rider-Waite-Smith tarot deck version ${{ steps.package.outputs.version }} according to the Tarot Deck Specification.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
