@@ -38,35 +38,21 @@ jobs:
       - name: Create package
         id: create_package
         run: |
-          # Create the package and capture only the filename
-          FILENAME=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
+          # Run the script and capture the output (which should be just the filename)
+          OUTPUT_FILE=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
           
-          # Debug output
-          echo "Package script returned: '$FILENAME'"
+          # Trim any whitespace
+          OUTPUT_FILE=$(echo "$OUTPUT_FILE" | xargs)
           
-          # Validate that the file exists
-          if [ -f "$FILENAME" ]; then
-            echo "Found package file: $FILENAME"
-            echo "package_path=$FILENAME" >> $GITHUB_OUTPUT
+          echo "Generated package file: $OUTPUT_FILE"
+          
+          # Verify the file exists
+          if [ -f "$OUTPUT_FILE" ]; then
+            echo "File exists and is readable"
+            ls -la "$OUTPUT_FILE"
+            echo "package_path=$OUTPUT_FILE" >> $GITHUB_OUTPUT
           else
-            echo "ERROR: Package file not found: $FILENAME"
-            exit 1
-          fi
-
-      - name: Debug outputs
-        run: |
-          echo "Version: ${{ steps.version.outputs.version }}"
-          echo "Package path: ${{ steps.create_package.outputs.package_path }}"
-          ls -la
-
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        # Run this step in all cases where we have a package
-        if: steps.create_package.outputs.package_path != ''
-        with:
-          files: ${{ steps.create_package.outputs.package_path }}
-          name: Rider-Waite-Smith Tarot Deck v${{ steps.version.outputs.version }}
+            echo "ERROR
           tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}', steps.version.outputs.version) }}
           draft: false
           prerelease: false
