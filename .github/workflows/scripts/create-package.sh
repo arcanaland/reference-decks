@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Get the version from the first parameter
 VERSION=$1
@@ -13,6 +14,8 @@ fi
 # Format the package name
 PACKAGE_NAME="rider-waite-smith-${VERSION}"
 ZIP_FILE="${PACKAGE_NAME}.zip"
+
+echo "Creating package: ${ZIP_FILE}..."
 
 # Create a temporary directory for packaging
 TEMP_DIR=$(mktemp -d)
@@ -33,15 +36,8 @@ Repository: ${GITHUB_REPOSITORY:-"arcanaland/specifications"}
 This package follows the Tarot Deck Specification v1.0.
 EOL
 
-# Create the zip file and suppress the output
-(cd "${TEMP_DIR}" && zip -r "${ZIP_FILE}" "${PACKAGE_NAME}" >/dev/null)
-
-# Check if zip command was successful
-if [ $? -ne 0 ]; then
-  echo "ERROR: Failed to create zip file" >&2
-  rm -rf "${TEMP_DIR}"
-  exit 1
-fi
+# Create the zip file and redirect output to stderr so it doesn't affect the function output
+(cd "${TEMP_DIR}" && zip -r "${ZIP_FILE}" "${PACKAGE_NAME}" 1>&2)
 
 # Move the zip file to the current directory
 mv "${TEMP_DIR}/${ZIP_FILE}" .
@@ -49,6 +45,5 @@ mv "${TEMP_DIR}/${ZIP_FILE}" .
 # Clean up the temporary directory
 rm -rf "${TEMP_DIR}"
 
-# Output just the filename, no other text
-echo "${ZIP_FILE}"
-
+echo "Package created: ${ZIP_FILE}" >&2
+printf "%s" "${ZIP_FILE}" # Print the filename without newline
