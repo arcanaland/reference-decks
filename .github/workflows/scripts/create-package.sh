@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -exuo pipefail
 
 # Get the version from the first parameter
 VERSION=$1
