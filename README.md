@@ -5,6 +5,7 @@ This repository provides example tarot decks created using the [Tarot Deck Speci
 ## Key Features
 
 - **Rider-Waite-Smith Deck**: A classic, beginner-friendly tarot deck with metadata, images, and i18n files.
+- **Tarot Chiquito Deck**: A retro-inspired minimally spec compliant deck
 - **Specification Compliance**: Demonstrates proper directory structure, metadata (`deck.toml`), and localization.
 
 ## Directory Structure
@@ -20,7 +21,13 @@ rider-waite-smith/
 
 ## Licensing
 
-The Rider-Waite-Smith deck is Public Domain. See `deck.toml` for details.
+This repository contains multiple reference tarot decks, each with its own license:
+
+- **Rider-Waite-Smith Deck**: Public Domain (original artwork).
+- **Tarot Chiquito**: CC0 1.0 Universal (Public Domain Dedication).
+- **Repository Code**: Licensed under the MIT License.
+
+Please refer to the `LICENSE` file in the root of this repository for the MIT License covering the repository's code and any unspecified files. Individual decks include their own `deck.toml` files specifying their specific licenses.
 
 ## Contributing
 
