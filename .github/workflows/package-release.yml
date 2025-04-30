@@ -1,0 +1,65 @@
+name: Package and Release Tarot Deck
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+  # Run on push to main branch with tag
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          mkdir -p .github/workflows/scripts
+          chmod +x .github/workflows/scripts/extract-version.sh
+          chmod +x .github/workflows/scripts/create-package.sh
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(.github/workflows/scripts/extract-version.sh)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Get current time
+        id: current_time
+        run: |
+          echo "timestamp=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Create package
+        id: create_package
+        run: |
+          OUTPUT=$(.github/workflows/scripts/create-package.sh "${{ steps.version.outputs.version }}" "${{ steps.current_time.outputs.timestamp }}")
+          echo "PACKAGE_PATH=$OUTPUT" >> $GITHUB_ENV
+          echo "package_path=$OUTPUT" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        with:
+          files: ${{ steps.create_package.outputs.package_path }}
+          name: Rider-Waite-Smith Tarot Deck v${{ steps.version.outputs.version }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v{0}', steps.version.outputs.version) }}
+          draft: false
+          prerelease: false
+          body: |
+            Rider-Waite-Smith Tarot Deck v${{ steps.version.outputs.version }}
+            
+            This release contains the packaged Rider-Waite-Smith tarot deck according to the Tarot Deck Specification.
+            
+            **Package Information:**
+            - Version: ${{ steps.version.outputs.version }}
+            - Build Date: ${{ steps.current_time.outputs.timestamp }}
+            - Created by: ${{ github.actor }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
