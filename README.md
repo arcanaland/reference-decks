@@ -20,7 +20,7 @@ my-tarot-deck/
 
 ## Licensing
 
-All original code, workflows and documentation in this repository is licensed under the MIT license.
+All original code and documentation in this repository is licensed under the MIT license.
 
 For non-original deck-specific assets, please see each deck's `deck.toml` for license details.
 
