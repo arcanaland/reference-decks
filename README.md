@@ -1,13 +1,12 @@
 # Reference Tarot Decks
 
-This repository contains royalty-free tarot decks compliant with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) deck and the [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html) deck.
+This repository contains royalty-free tarot decks compliant with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
 
-## Key Features
+- [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot)
+- [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html)
+- [ASCII Tarot](https://github.com/lawreka/ascii-tarot)
 
-- **Rider-Waite-Smith and Aquatic**: Two beginner-friendly tarot decks with metadata, images, and i18n files.
-- **Specification Compliance**: Demonstrates proper directory structure, metadata (`deck.toml`), and localization.
-
-## Directory Structure
+## Deck Directory Structure
 
 ```
 my-tarot-deck/
@@ -15,17 +14,16 @@ my-tarot-deck/
   card_backs/              # Card back images
   scalable/                # SVG images (e.g., major_arcana/00.svg)
   h750/, h1200/, h2400/    # Raster images in various resolutions
+  ansi32/, ansi50/         # Text-based art (ANSI and ASCII) for various heights
   names/                   # Localization files (e.g., en.toml)
 ```
 
 ## Licensing
 
-Please view each deck's `deck.toml` for license details.
+All original code and documentation in this repository is licensed under the MIT license.
+
+For non-original deck-specific assets, please see each deck's `deck.toml` for license details.
 
 ## Contributing
 
 Contributions are welcome! Follow the [Tarot Deck Specification](https://github.com/arcanaland/specifications) and submit a pull request. 
-
---- 
-
-For more details, visit the [specification repo](https://github.com/arcanaland/specifications).
