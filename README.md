@@ -14,12 +14,15 @@ my-tarot-deck/
   card_backs/              # Card back images
   scalable/                # SVG images (e.g., major_arcana/00.svg)
   h750/, h1200/, h2400/    # Raster images in various resolutions
+  ansi32/, ansi50/         # Text-based art (ANSI and ASCII) for various heights
   names/                   # Localization files (e.g., en.toml)
 ```
 
 ## Licensing
 
-Please view each deck's `deck.toml` for license details.
+All original code, workflows and documentation in this repository is licensed under the MIT license.
+
+For non-original deck-specific assets, please see each deck's `deck.toml` for license details.
 
 ## Contributing
 
