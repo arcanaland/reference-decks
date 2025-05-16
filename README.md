@@ -1,13 +1,12 @@
 # Reference Tarot Decks
 
-This repository contains royalty-free tarot decks compliant with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) deck and the [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html) deck.
+This repository contains royalty-free tarot decks compliant with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
 
-## Key Features
+- [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot)
+- [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html)
+- [ASCII Tarot](https://github.com/lawreka/ascii-tarot)
 
-- **Rider-Waite-Smith and Aquatic**: Two beginner-friendly tarot decks with metadata, images, and i18n files.
-- **Specification Compliance**: Demonstrates proper directory structure, metadata (`deck.toml`), and localization.
-
-## Directory Structure
+## Deck Directory Structure
 
 ```
 my-tarot-deck/
