@@ -27,7 +27,3 @@ For non-original deck-specific assets, please see each deck's `deck.toml` for li
 ## Contributing
 
 Contributions are welcome! Follow the [Tarot Deck Specification](https://github.com/arcanaland/specifications) and submit a pull request. 
-
---- 
-
-For more details, visit the [specification repo](https://github.com/arcanaland/specifications).
