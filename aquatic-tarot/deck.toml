@@ -1,0 +1,12 @@
+[deck]
+id = "aquatic-tarot"
+schema_version = "1.0"
+name = "Aquatic Tarot"
+version = "1.0"
+author = "Andreas Schröter"
+license = "CC BY-NC-SA 3.0"
+description = "Andreas Schröter's beautiful water colour interpretation of the classical and original Rider-Waite tarot deck. The images have a soft dreamy appearance which encourages a calm, serene, contemplative approach."
+attribution = "Original artwork by Andreas Schröter"
+aspect_ratio = 0.625
+website = "http://www.aquatictarot.net/deck/tarot.html"
+tags = ["water-color", "dreamy", "rider-waite-smith"]
