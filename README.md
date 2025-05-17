@@ -1,6 +1,6 @@
 # Reference Tarot Decks
 
-This repository contains royalty-free tarot decks compliant with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
+This repository contains tarot decks that are public domain, open source, or Creative Commons-licensed in accordance with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
 
 - [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot)
 - [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html)
