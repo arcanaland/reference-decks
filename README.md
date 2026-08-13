@@ -5,6 +5,7 @@ This repository contains tarot decks that are public domain, open source, or Cre
 - [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot)
 - [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html)
 - [ASCII Tarot](https://github.com/lawreka/ascii-tarot)
+- [Pixel Art Rider-Waite-Smith](https://opengameart.org/content/pixel-art-rider-waite-smith-tarot-cards)
 
 ## Deck Directory Structure
 

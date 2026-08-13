@@ -1,0 +1,38 @@
+[deck]
+schema_version = "2.0"
+
+name = "Pixel Art Rider-Waite-Smith"
+identifier = "land.arcana/deck/pixel-rws-tarot"
+follows = "land.arcana/deck/rider-waite-smith"
+version = "1.0"
+author = "Sasser"
+packager = "Adam Fidel <adam@arcana.land>"
+description = "A pixelated rendering of the Rider-Waite-Smith deck cleaned up and with traced lettering."
+
+follows = "land.arcana/deck/rider-waite-smith"
+pips = "scenic"
+
+license = "CC-BY-4.0"
+license_files = ["LICENSE"]
+copyright = "Artwork © Sasser"
+attribution = "\"Pixel Art Rider-Waite-Smith Tarot Cards\" by Sasser, licensed under CC BY 4.0, derived from \"Rider-Waite Smith Tarot Cards\" by luciellaes. Lettering set in Chunky Sans 6 and Pixel Font 5 by Not Jam."
+rights_status = "https://creativecommons.org/licenses/by/4.0/"
+redistribution = "full"
+derivation = "full"
+
+aspect_ratio = 0.5714
+default_language = "en"
+published_date = "2026-07-24"
+tags = ["pixel-art", "rider-waite-smith", "low-resolution", "game-asset"]
+
+links = [
+  { rel = "homepage", url = "https://opengameart.org/content/pixel-art-rider-waite-smith-tarot-cards", title = "Pixel Art Rider-Waite-Smith Tarot Cards on OpenGameArt" },
+  { rel = "artist", url = "https://opengameart.org/users/sasser" },
+  { rel = "source", url = "https://luciellaes.itch.io/rider-waite-smith-tarot-cards-cc0", title = "The Rider-Waite Smith Tarot Cards by luciellaes this deck is traced from" },
+]
+
+[card_backs]
+default = "classic"
+
+[card_backs.designs.classic]
+description = "Symmetric swirling lines that converge into a pattern reminiscent of an eye on a purple field."
