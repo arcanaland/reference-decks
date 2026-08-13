@@ -1,0 +1,42 @@
+version = 1
+SPDX-PackageName = "arcanaland-reference-decks"
+SPDX-PackageSupplier = "Adam Fidel <adam@fidel.cloud>"
+SPDX-PackageDownloadLocation = "https://github.com/arcanaland/reference-decks"
+
+# Fallback
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Adam Fidel"
+SPDX-License-Identifier = "MIT"
+
+# Rider-Waite-Smith
+[[annotations]]
+path = "rider-waite-smith/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "1909 Pamela Colman Smith"
+SPDX-License-Identifier = "LicenseRef-PublicDomain AND CC0-1.0"
+
+# Aquatic Tarot
+[[annotations]]
+path = "aquatic-tarot/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "1995-2010 Andreas Schröter"
+SPDX-License-Identifier = "CC-BY-NC-SA-3.0"
+
+# ASCII Tarot
+[[annotations]]
+path = "ascii-tarot/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 Kathryn Isabelle Lawrence"
+SPDX-License-Identifier = "MIT"
+
+# Packaging metadata
+[[annotations]]
+path = [
+  "*/deck.toml",
+  "*/names/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Adam Fidel"
+SPDX-License-Identifier = "MIT"
