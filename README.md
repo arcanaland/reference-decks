@@ -2,11 +2,11 @@
 
 This repository contains tarot decks that are public domain, open source, or Creative Commons-licensed in accordance with the [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
 
-| Deck | License | |
+| Deck | Version | License |
 | --- | --- | --- |
-| [Rider-Waite-Smith](https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot) | `LicenseRef-PublicDomain AND CC0-1.0` | Artwork public domain (1909); digital restoration CC0 |
-| [Aquatic Tarot](http://www.aquatictarot.net/deck/tarot.html) | `CC-BY-NC-SA-3.0` | Noncommercial use only |
-| [ASCII Tarot](https://github.com/lawreka/ascii-tarot) | `MIT` | |
+| [Rider-Waite-Smith](https://github.com/arcanaland/reference-decks/releases/tag/rider-waite-smith%2Fv1.1) | `v1.1` | Public domain and `CC0-1.0` |
+| [Aquatic Tarot](https://github.com/arcanaland/reference-decks/releases/tag/aquatic-tarot%2Fv1.0) | `v1.0` | `CC-BY-NC-SA-3.0` |
+| [ASCII Tarot](https://github.com/arcanaland/reference-decks/releases/tag/ascii-tarot%2Fv1.0) | `v1.0` | `MIT` | 
 
 ## Deck Directory Structure
 
