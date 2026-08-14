@@ -1,9 +1,16 @@
 [deck]
-id = "ascii-tarot"
+schema_version = "1.1"
+
 name = "ASCII Tarot"
-version = "1.0"
 author = "Kathryn Isabelle Lawrence"
-license = "MIT"
-schema_version = "1.0"
-url = "https://github.com/lawreka/ascii-tarot"
+version = "1.0"
 description = "Minimal ASCII tarot deck taken from the ascii-tarot npm package by lawreka"
+
+id = "ascii-tarot-lawreka"
+identifier = "land.arcana/deck/ascii-tarot-lawreka"
+website = "https://github.com/lawreka/ascii-tarot"
+
+license = "MIT"
+license_files = ["LICENSE"]
+attribution = "ASCII art by Kathryn Isabelle Lawrence (https://github.com/lawreka/ascii-tarot)."
+copyright = "Copyright (c) Kathryn Isabelle Lawrence 2020"
