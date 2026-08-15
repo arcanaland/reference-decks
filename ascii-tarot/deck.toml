@@ -1,16 +1,32 @@
 [deck]
-schema_version = "1.1"
-
+schema_version = "2.0"
 name = "ASCII Tarot"
-author = "Kathryn Isabelle Lawrence"
-version = "1.0"
-description = "Minimal ASCII tarot deck taken from the ascii-tarot npm package by lawreka"
+artist = "Kathryn Isabelle Lawrence"
+version = "1.1"
+description = "ASCII art deck by Kathryn Isabelle Lawrence *:･ﾟ✧*:･ﾟ✧"
 
-id = "ascii-tarot-lawreka"
+follows = "land.arcana/deck/rider-waite-smith"
+pips = "scenic"
+
 identifier = "land.arcana/deck/ascii-tarot-lawreka"
-website = "https://github.com/lawreka/ascii-tarot"
+packager = "Adam Fidel <adam@arcana.land>"
 
 license = "MIT"
 license_files = ["LICENSE"]
+redistribution = "full"
+derivation = "full"
 attribution = "ASCII art by Kathryn Isabelle Lawrence (https://github.com/lawreka/ascii-tarot)."
 copyright = "Copyright (c) Kathryn Isabelle Lawrence 2020"
+
+tags = ["plain-text", "ascii", "quirky"]
+
+# ASCII boobs are SFW
+content_rating = { "oars-1.1" = { artwork_complete = true } }
+
+links = [
+   { rel = "homepage", url = "https://www.npmjs.com/package/ascii-tarot" },
+   { rel = "artist", url = "https://kathrynisabelle.com" },
+   { rel = "buy", url = "https://kathrynisabelle.com/shop" },
+   { rel = "source", url = "https://github.com/lawreka/ascii-tarot" },
+]
+
