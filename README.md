@@ -1,4 +1,4 @@
-# Tarot Decks
+# Tarot Decks ([Showcase](https://github.com/arcanaland/reference-decks/releases))
 
 This repository contains tarot decks that are public domain, open source, or Creative Commons-licensed in accordance with the Arcana Land's [Tarot Deck Specification](https://github.com/arcanaland/specifications). It currently features the following decks:
 
