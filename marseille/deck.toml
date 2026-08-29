@@ -1,0 +1,146 @@
+[deck]
+schema_version = "2.0"
+name = "Tarot de Marseille"
+identifier = "land.arcana/deck/marseille"
+version = "0.3"
+default_language = "fr"
+metadata_language = "en"
+artwork_language = ["fr-1694acad"]
+
+publisher = "Yoav Ben-Dov"
+published_date = "2011"
+artist = "Nicolas Conver, restored by Yoav Ben-Dov"
+packager = "Adam Fidel <adam@arcana.land>"
+
+description = "CBD Tarot de Marseille is a faithful reproduction of the traditional Tarot cards. It is based on the standard deck published in Marseille by Nicolas Conver, 1760"
+attribution = "CBD Tarot de Marseille by Dr. Yoav Ben-Dov, www.cbdtarot.com"
+license = "CC-BY-NC-SA-3.0"
+rights_status = "https://rightsstatements.org/vocab/NoC-NC/1.0/"
+redistribution = "full"
+derivation = "full"
+tags = ["restored"]
+
+pips = "emblematic"
+aspect_ratio = 0.5075
+
+links = [
+    { rel = "homepage", url = "https://cbdtarot.com" },
+    { rel = "source", url = "https://www.flickr.com/photos/48485995@N00/albums"},
+]
+
+[deck.origin]
+"iptc-dst" = "print"
+
+[deck.content_rating."oars-1.1"]
+sex_nudity = "mild"
+violence_cartoon = "mild"
+
+[card_backs.designs.default]
+reversible = true
+
+[cards."major_arcana.00"]
+name = "Le Mat"
+unnumbered = true
+
+[cards."major_arcana.01"]
+name = "Le Bateleur"
+
+[cards."major_arcana.02"]
+name = "La Papesse"
+
+[cards."major_arcana.03"]
+name = "L'Imperatrice"
+
+[cards."major_arcana.04"]
+name = "L'Empereur"
+number = "IIII"
+
+[cards."major_arcana.05"]
+name = "Le Pape"
+
+[cards."major_arcana.06"]
+name = "L'Amoureux"
+
+[cards."major_arcana.07"]
+name = "Le Chariot"
+
+[cards."major_arcana.08"]
+name = "La Justice"
+
+[cards."major_arcana.09"]
+name = "L'Hermite"
+number = "VIIII"
+
+[cards."major_arcana.10"]
+name = "La Roue de Fortune"
+
+[cards."major_arcana.11"]
+name = "La Force"
+
+[cards."major_arcana.12"]
+name = "Le Pendu"
+
+[cards."major_arcana.13"]
+unnamed = true
+
+[cards."major_arcana.14"]
+name = "Temperance"
+number = "XIIII"
+
+[cards."major_arcana.15"]
+name = "Le Diable"
+
+[cards."major_arcana.16"]
+name = "La Maison Dieu"
+
+[cards."major_arcana.17"]
+name = "Le Toille"
+
+[cards."major_arcana.18"]
+name = "La Lune"
+
+[cards."major_arcana.19"]
+name = "Le Soleil"
+number = "XVIIII"
+
+[cards."major_arcana.20"]
+name = "Le Jugement"
+
+[cards."major_arcana.21"]
+name = "Le Monde"
+
+[suits.wands]
+name = "Baton"
+
+[suits.cups]
+name = "Coupe"
+
+[suits.swords]
+name = "Epee"
+
+[suits.pentacles]
+name = "Deniers"
+
+[ranks.page]
+name = "Valet"
+
+[ranks.knight]
+name = "Cavalier"
+
+[ranks.queen]
+name = "Reyne"
+
+[ranks.king]
+name = "Roy"
+
+[cards."minor_arcana.swords.page"]
+name = "Valet d'Epee"
+
+[cards."minor_arcana.swords.knight"]
+name = "Cavalier d'Epee"
+
+[cards."minor_arcana.swords.queen"]
+name = "Reyne d'Epee"
+
+[cards."minor_arcana.swords.king"]
+name = "Roy d'Epee"
