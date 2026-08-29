@@ -1,0 +1,4 @@
+[metadata]
+
+[name.card.minor_arcana]
+name_template = "{rank} de {suit}"
