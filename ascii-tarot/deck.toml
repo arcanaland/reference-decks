@@ -5,11 +5,14 @@ artist = "Kathryn Isabelle Lawrence"
 version = "1.1"
 description = "ASCII art deck by Kathryn Isabelle Lawrence *:･ﾟ✧*:･ﾟ✧"
 
-follows = "land.arcana/deck/rider-waite-smith"
-pips = "scenic"
-
 identifier = "land.arcana/deck/ascii-tarot-lawreka"
 packager = "Adam Fidel <adam@arcana.land>"
+published_date = "2020"
+
+related = [{ rel = "pattern", target = "land.arcana/pattern/rider-waite-smith" }]
+pips = "scenic"
+aspect_ratio = 0.579
+artwork_language = ["en"]
 
 license = "MIT"
 license_files = ["LICENSE"]
@@ -20,13 +23,15 @@ copyright = "Copyright (c) Kathryn Isabelle Lawrence 2020"
 
 tags = ["plain-text", "ascii", "quirky"]
 
+# no AI here
+origin = { "iptc-dst" = "digitalCreation" }
+
 # ASCII boobs are SFW
 content_rating = { "oars-1.1" = { artwork_complete = true } }
 
 links = [
-   { rel = "homepage", url = "https://www.npmjs.com/package/ascii-tarot" },
+   { rel = "homepage", url = "https://ascii-tarot.com" },
    { rel = "artist", url = "https://kathrynisabelle.com" },
    { rel = "buy", url = "https://kathrynisabelle.com/shop" },
    { rel = "source", url = "https://github.com/lawreka/ascii-tarot" },
 ]
-
