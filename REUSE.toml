@@ -31,6 +31,15 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "2020 Kathryn Isabelle Lawrence"
 SPDX-License-Identifier = "MIT"
 
+# ASCII Tarot rendered rasters: upstream art, our rendering.
+# NB: `reuse` globs do not support character classes, so `h[0-9]*` matches
+# nothing and fails silently -- the fallback still satisfies `reuse lint`.
+[[annotations]]
+path = ["ascii-tarot/h*/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2020 Kathryn Isabelle Lawrence", "2026 Adam Fidel"]
+SPDX-License-Identifier = "MIT"
+
 # Packaging metadata
 [[annotations]]
 path = [
