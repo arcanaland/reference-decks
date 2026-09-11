@@ -1,5 +1,24 @@
 {
-  "decks": [],
+  "decks": [
+    {
+      "artist": "Andreas Schröter",
+      "attribution": "\"Aquatic Tarot\" by Andreas Schröter (http://www.aquatictarot.net), licensed under CC BY-NC-SA 3.0.",
+      "card_count": 78,
+      "cover": "https://raw.githubusercontent.com/arcanaland/reference-decks/refs/tags/aquatic-tarot/v2.0/aquatic-tarot/h800/major_arcana/00.jpg",
+      "description": "Andreas Schröter's beautiful water colour interpretation of the classical and original Rider-Waite tarot deck. The images have a soft dreamy appearance which encourages a calm, serene, contemplative approach.",
+      "identifier": "land.arcana/deck/aquatic-tarot",
+      "license": "CC-BY-NC-SA-3.0",
+      "name": "Aquatic Tarot",
+      "package": {
+        "sha256": "b14536a814999415e4b7887570ebc109422afd362ec10b910fd630f63ec67981",
+        "size": 12535084,
+        "url": "https://github.com/arcanaland/reference-decks/releases/download/aquatic-tarot/v2.0/aquatic-tarot-2.0.tarotdeck"
+      },
+      "schema_version": "2.0",
+      "slug": "aquatic-tarot",
+      "version": "2.0"
+    }
+  ],
   "format": 1,
-  "source_commit": "d94106a"
+  "source_commit": "0ee2de4"
 }
