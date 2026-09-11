@@ -60,19 +60,23 @@ jobs:
           # Extract human-readable name from deck.toml
           DISPLAY_NAME=$(grep -E '^name\s*=\s*"[^"]+"' $DECK_NAME/deck.toml | sed -E 's/^name\s*=\s*"([^"]+)"/\1/' || echo "$DECK_NAME")
           echo "Display name: $DISPLAY_NAME"
-          
+
           # Create package name
           PACKAGE_NAME="${DECK_NAME}-${VERSION}"
-          ZIP_FILE="${PACKAGE_NAME}.zip"
-          echo "Creating package: $ZIP_FILE"
-          
-          # Create the zip file
-          zip -r "${ZIP_FILE}" $DECK_NAME
-          ls -la "${ZIP_FILE}"
-          
+          PACKAGE_FILE="${PACKAGE_NAME}.tarotdeck"
+          echo "Creating package: $PACKAGE_FILE"
+
+          # Build a deck container
+          OUT="$PWD/$PACKAGE_FILE"
+          STAGE=$(mktemp -d)
+          cp -r "$DECK_NAME"/. "$STAGE"
+          printf '%s' 'application/vnd.arcana-land.tarotdeck+zip' > "$STAGE/mimetype"
+          (cd "$STAGE" && zip -X0 "$OUT" mimetype && zip -Xr "$OUT" . -x mimetype)
+          ls -la "${PACKAGE_FILE}"
+
           # Set output variables
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
+          echo "package_file=$PACKAGE_FILE" >> $GITHUB_OUTPUT
           echo "display_name=$DISPLAY_NAME" >> $GITHUB_OUTPUT
           echo "tag_name=${{ steps.deck.outputs.deck_name}}/v${VERSION}" >> $GITHUB_OUTPUT
 
@@ -80,7 +84,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ steps.package.outputs.zip_file }}
+          files: ${{ steps.package.outputs.package_file }}
           name: ${{ steps.package.outputs.display_name }} v${{ steps.package.outputs.version }}
           tag_name: ${{ steps.package.outputs.tag_name }}
           draft: false

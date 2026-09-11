@@ -1,14 +1,14 @@
 [deck]
-id = "aquatic-tarot"
-schema_version = "1.0"
+identifier = "land.arcana/deck/aquatic-tarot"
+schema_version = "2.0"
 name = "Aquatic Tarot"
-version = "1.0"
-author = "Andreas Schröter"
+version = "2.0"
+artist = "Andreas Schröter"
 license = "CC-BY-NC-SA-3.0"
 license_files = ["LICENSE"]
 copyright = "© 1995-2010 Andreas Schröter"
 description = "Andreas Schröter's beautiful water colour interpretation of the classical and original Rider-Waite tarot deck. The images have a soft dreamy appearance which encourages a calm, serene, contemplative approach."
 attribution = "\"Aquatic Tarot\" by Andreas Schröter (http://www.aquatictarot.net), licensed under CC BY-NC-SA 3.0."
 aspect_ratio = 0.625
-website = "http://www.aquatictarot.net/"
+links = [{ rel = "homepage", url = "http://www.aquatictarot.net/" }]
 tags = ["water-color", "dreamy", "rider-waite-smith"]

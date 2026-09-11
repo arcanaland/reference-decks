@@ -16,3 +16,15 @@ release-notes deck *args:
 # Fail if any live release body has drifted from the generated notes
 check-release-notes:
     ./tools/release_notes.py --all --check
+
+# Render index.json to stdout (pass --apply or --check)
+index *args:
+    ./tools/gen_index.py {{args}}
+
+# Fail if index.json has drifted from the live releases (needs gh)
+check-index:
+    ./tools/gen_index.py --check
+
+# Unit tests for the tools
+test-tools:
+    uv run --with pytest pytest tools/

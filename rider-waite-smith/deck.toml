@@ -1,17 +1,16 @@
 [deck]
-id = "rider-waite-smith"
-schema_version = "1.0"
+identifier = "land.arcana/deck/rider-waite-smith"
+schema_version = "2.0"
 name = "Rider-Waite-Smith Tarot"
-version = "1.1"
-author = "Pamela Colman Smith"
+version = "2.0"
+artist = "Pamela Colman Smith"
 license = "LicenseRef-PublicDomain AND CC0-1.0"
 license_files = ["LICENSE"]
 copyright = "Artwork © 1909 Pamela Colman Smith (copyright expired)"
 attribution = "Original artwork by Pamela Colman Smith (1909). Digital restoration by anonymous user on Anna's Archive."
 description = "The classic Rider-Waite-Smith tarot deck, first published in 1909 and illustrated by Pamela Colman Smith under the direction of Arthur Edward Waite. This digital version features cleaned and formatted images by a tarot afficionado on Anna's Archive."
 aspect_ratio = 0.569
-created_date = "1909-12-01"
-updated_date = "2025-05-04"
+published_date = "1909-12-01"
 publisher = "Original: US Games Systems"
-website = "https://www.usgamesinc.com/rider-waite-tarot-card-deck.html"
+links = [{ rel = "buy", url = "https://www.usgamesinc.com/rider-waite-tarot-card-deck.html" }]
 tags = ["traditional", "classic", "beginner-friendly", "reference", "public-domain"]
