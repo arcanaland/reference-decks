@@ -17,7 +17,7 @@ license = "CC-BY-NC-SA-3.0"
 rights_status = "https://rightsstatements.org/vocab/NoC-NC/1.0/"
 redistribution = "full"
 derivation = "full"
-tags = ["restored"]
+tags = ["restored", "18th-century", "marseille-type-ii"]
 
 pips = "emblematic"
 aspect_ratio = 0.5075
@@ -25,6 +25,9 @@ aspect_ratio = 0.5075
 links = [
     { rel = "homepage", url = "https://cbdtarot.com" },
     { rel = "source", url = "https://www.flickr.com/photos/48485995@N00/albums"},
+]
+related = [
+    { rel = "pattern", target = "land.arcana/pattern/tarot-de-marseille" },
 ]
 
 [deck.origin]
