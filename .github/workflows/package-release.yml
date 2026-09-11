@@ -80,6 +80,15 @@ jobs:
           echo "display_name=$DISPLAY_NAME" >> $GITHUB_OUTPUT
           echo "tag_name=${{ steps.deck.outputs.deck_name}}/v${VERSION}" >> $GITHUB_OUTPUT
 
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          NOTES_FILE="$RUNNER_TEMP/release-notes.md"
+          ./tools/release_notes.py "${{ steps.deck.outputs.deck_name }}" > "$NOTES_FILE"
+          echo "notes_file=$NOTES_FILE" >> $GITHUB_OUTPUT
+
       - name: Create Release
         if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
@@ -89,10 +98,7 @@ jobs:
           tag_name: ${{ steps.package.outputs.tag_name }}
           draft: false
           prerelease: false
-          body: |
-            # ${{ steps.package.outputs.display_name }} Tarot Deck v${{ steps.package.outputs.version }}
-            
-            This release contains the ${{ steps.package.outputs.display_name }} deck in the format described by the [Tarot Deck Specification](https://github.com/arcanaland/specifications).
+          body_path: ${{ steps.notes.outputs.notes_file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
