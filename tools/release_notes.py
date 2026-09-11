@@ -150,11 +150,24 @@ def load_deck(deck: str) -> tuple[dict, Tree, str]:
     return meta, tree, tag
 
 
+def package_file(deck: str, tree: Tree, version: str) -> str:
+    """The release asset's file name."""
+    workflow = ".github/workflows/package-release.yml"
+    # old decks are just zips
+    if tree.ref and ".tarotdeck" not in run("git", "show", f"{tree.ref}:{workflow}", ok=True):
+        return f"{deck}-{version}.zip"
+    return f"{deck}-{version}.tarotdeck"
+
+
 def card_names(tree: Tree) -> dict[str, str]:
     """Major arcana names, keyed by the two-digit card id."""
     path = f"{tree.deck}/names/en.toml"
     if tree.has(path):
-        table = tomllib.loads(tree.read(path)).get("major_arcana", {})
+        data = tomllib.loads(tree.read(path))
+        # 2.0 writes [name.card.major_arcana]; 1.0 wrote [major_arcana].
+        table = data.get("name", {}).get("card", {}).get("major_arcana") or data.get(
+            "major_arcana", {}
+        )
         if table:
             return {str(k): v for k, v in table.items()}
     return {f"{i:02d}": name for i, name in enumerate(DEFAULT_MAJOR_NAMES)}
@@ -247,16 +260,50 @@ def contents(tree: Tree) -> str:
     return "\n".join(lines)
 
 
+INSTALLING = """\
+## Installing
+
+
+**[Tarot Canvas](https://github.com/arcanaland/tarot-canvas)**
+
+```console
+$ mkdir -p ~/.var/app/land.arcana.TarotCanvas/data/tarot/decks
+$ unzip {file} -d ~/.var/app/land.arcana.TarotCanvas/data/tarot/decks{into}
+```
+
+**[`cartomancer`](https://github.com/arcanaland/cartomancer)** (and other XDG-native tools):
+
+```console
+$ mkdir -p ~/.local/share/tarot/decks
+$ unzip {file} -d ~/.local/share/tarot/decks{into}
+$ cartomancer list
+```
+
+
+> Note: To keep one library for both, symlink `~/.local/share/tarot` to `~/.var/app/land.arcana.TarotCanvas/data/tarot`."""
+
+
+def installing(deck: str, file: str) -> str:
+    # A container holds the deck root's contents with no wrapping directory
+    # (DECK.md §2.4), so it unpacks into a directory named for the deck.
+    into = f"/{deck}" if file.endswith(".tarotdeck") else ""
+    return INSTALLING.format(file=file, into=into)
+
+
 def licensing(meta: dict, tree: Tree, repo: str, tag: str) -> str:
     lines = [f"- **License:** `{meta['license']}`"]
     if copyright_ := meta.get("copyright"):
         lines.append(f"- **Copyright:** {copyright_}")
     if attribution := meta.get("attribution"):
         lines.append(f"- **Attribution:** {attribution}")
-    if author := meta.get("author"):
-        lines.append(f"- **Artist:** {author}")
+    # 2.0 renamed `author` to `artist` and replaced `website` with `links`.
+    if artist := meta.get("artist") or meta.get("author"):
+        lines.append(f"- **Artist:** {artist}")
     if website := meta.get("website"):
         lines.append(f"- **Website:** {website}")
+    if links := meta.get("links"):
+        rendered = ", ".join(f"[{l.get('title') or l['rel']}]({l['url']})" for l in links)
+        lines.append(f"- **Links:** {rendered}")
 
     ref = quote(f"refs/tags/{tag}", safe="/")
     for name in meta.get("license_files", []):
@@ -292,6 +339,7 @@ def render(deck: str) -> tuple[str, str]:
         ]
 
     parts += ["## Contents", "", contents(tree), ""]
+    parts += ["", installing(deck, package_file(deck, tree, str(meta["version"]))), ""]
     parts += ["## License and Attribution", "", licensing(meta, tree, repo, tag), ""]
     parts += [
         f"Packaged per the [Tarot Deck Specification]({SPEC_URL}), "
