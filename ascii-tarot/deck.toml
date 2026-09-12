@@ -2,7 +2,7 @@
 schema_version = "2.0"
 name = "ASCII Tarot"
 artist = "Kathryn Isabelle Lawrence"
-version = "1.1"
+version = "2.0"
 description = "ASCII art deck by Kathryn Isabelle Lawrence *:･ﾟ✧*:･ﾟ✧"
 
 identifier = "land.arcana/deck/ascii-tarot-lawreka"
