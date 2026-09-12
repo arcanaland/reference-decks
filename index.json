@@ -17,8 +17,26 @@
       "schema_version": "2.0",
       "slug": "aquatic-tarot",
       "version": "2.0"
+    },
+    {
+      "artist": "Kathryn Isabelle Lawrence",
+      "attribution": "ASCII art by Kathryn Isabelle Lawrence (https://github.com/lawreka/ascii-tarot).",
+      "card_count": 78,
+      "cover": "https://raw.githubusercontent.com/arcanaland/reference-decks/refs/tags/ascii-tarot/v2.0/ascii-tarot/h1200/major_arcana/00.webp",
+      "description": "ASCII art deck by Kathryn Isabelle Lawrence *:･ﾟ✧*:･ﾟ✧",
+      "identifier": "land.arcana/deck/ascii-tarot-lawreka",
+      "license": "MIT",
+      "name": "ASCII Tarot",
+      "package": {
+        "sha256": "7da3d0b5b46f8c40820bd9a7fb6cc7242d11182b5df5c0920ebda836a40fd8c5",
+        "size": 5469451,
+        "url": "https://github.com/arcanaland/reference-decks/releases/download/ascii-tarot/v2.0/ascii-tarot-2.0.tarotdeck"
+      },
+      "schema_version": "2.0",
+      "slug": "ascii-tarot",
+      "version": "2.0"
     }
   ],
   "format": 1,
-  "source_commit": "0ee2de4"
+  "source_commit": "85a2dd9"
 }
