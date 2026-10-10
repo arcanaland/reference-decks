@@ -38,6 +38,13 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = ["2020 Kathryn Isabelle Lawrence", "2026 Adam Fidel"]
 SPDX-License-Identifier = "MIT"
 
+# CBD Tarot de Marseille
+[[annotations]]
+path = "marseille/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = ["2010 Yoav Ben-Dov", "1760 Nicolas Conver"]
+SPDX-License-Identifier = "CC-BY-NC-SA-3.0"
+
 # Packaging metadata
 [[annotations]]
 path = [
@@ -47,3 +54,10 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 Adam Fidel"
 SPDX-License-Identifier = "MIT"
+
+# Marseille alt text
+[[annotations]]
+path = "marseille/names/en.toml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Adam Fidel"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

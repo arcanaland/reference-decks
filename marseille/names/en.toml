@@ -1,0 +1,58 @@
+[metadata.alt_text]
+source = "Alt text written by Adam Fidel, with Yoav Ben-Dov's The Marseille Tarot Revealed (2015) as reference."
+license = "CC-BY-SA-4.0"
+copyright = "© 2026 Adam Fidel"
+attribution = "Alt text by Adam Fidel."
+
+[alt_text.card.major_arcana]
+00 = "A village fool is being chased by a dog scratching at his exposed buttocks while he wanders aimlessly in nature carrying a rod on his shoulder with a sack on the end."
+01 = "A fancifully dressed street magician in the middle of a performance stands in front of a table displaying conjuring tools. He holds a wand in one hand."
+02 = "A wise woman, begarbed in flowing religious regalia, holds open a large tome."
+03 = "An empress seated on a throne holds an orbed scepter bearing a cross in one hand, while caressing a shield bearing the image of a heraldic eagle with the other."
+04 = "An emperor leans against a throne while holding an orbed scepter bearing a cross. A shield bearing the image of a heraldic eagle rests against the throne."
+05 = "A crowned holy man stands between two stone columns with his right hand in a gesture of benediction while his left hand holds a triple cross. Unclear shapes of figures in the foreground are reminiscent of people receiving counsel."
+06 = "A young man stands between two attentive young women while a suspended naked cupid aims an arrow at the youth caught in the middle."
+07 = "An armored and decorated man carrying a spear travels triumphantly in a horse-drawn carriage with a draped canopy."
+08 = "A regal figure faces us seated on a throne with measuring scales in one hand and a blade in the other."
+09 = "An aging man in monastic robes with unkempt hair hunches forward with a walking stick and a lantern."
+10 = "A large mechanical wooden wheel rotates while strange creatures with both animal and human parts climb its scaffolding and platforms."
+11 = "A woman, wearing a colorful dress and large hat, tames a lion."
+12 = "A man is suspended upside-down from a wooden frame with his hands behind his back and his legs crossed into a figure 4."
+13 = "A skeleton drags a golden scythe through a field littered with bones, severed heads and budding plants."
+14 = "A winged angelic woman transfers water between two golden chalices, the water hanging suspended over a dreamy landscape."
+15 = "A winged demon with an exposed penis and breasts presides over two lesser imps chained together in bondage."
+16 = "Two people plummet from a tall brick tower toward the natural landscape of a river flowing through grassy hills."
+17 = "A naked woman pours water from two golden chalices into a pond beneath a star-filled sky."
+18 = "The moon presides high in the sky above two canine-like animals with their tongues out while a clawed aquatic creature resides in a large pool of water."
+19 = "Two children engage playfully under an anthropomorphic sun."
+20 = "A winged angel emerges from the clouds blowing a horn. Naked and surreal bodies rise to attention."
+21 = "A naked woman draped in a thin cloth and surrounded by a wreath of feathers floats in the heavens. Floating alongside her appear divine beings, both human and animal."
+
+[alt_text.card.minor_arcana.pentacles]
+ace = "A single coin inscribed with a four-petal flower in the center lies flat on a surface, with plants growing above and below the coin."
+page = "A youth stares inquisitively at a single pentacle in his hand, seemingly unaware of a second pentacle at his feet."
+knight = "A mounted knight slowly moves toward a single pentacle floating in front of him."
+queen = "A royal matriarch sits on a throne, holding a large pentacle in one hand and a scepter in the other."
+king = "A man in a large but plain hat and several layers of clothing is comfortably seated in a casual position with a pentacle in his lap."
+
+[alt_text.card.minor_arcana.cups]
+ace = "An ornate golden chalice, whose top is reminiscent more of the jagged fortifications of a city wall than of a smooth drinking surface, emerges from a water-covered surface."
+page = "A youth stares blankly into an empty gold chalice while traversing a natural landscape."
+knight = "A mounted knight extends his arm holding a cup in an apparent offering."
+queen = "A queen is seated on her throne resting an elaborate but closed cup on her knee and holding a blade in her hand."
+king = "A king with a pointed hat sits on a throne holding a large ornate cup with a narrow opening in one hand."
+
+[alt_text.card.minor_arcana.wands]
+ace = "A hand grasping a vibrant green wand emerges from a radial geometric pattern."
+page = "A youth in colorful clothing stands proudly, awkwardly grasping a massive natural branch."
+knight = "A mounted knight holds on to a refined branch, gazing longingly at it."
+queen = "A queen in flowing colorful garb is seated, loosely holding a large semi-elaborate wand."
+king = "A crowned king is seated on a throne, grasping a large ornate, elaborate wand."
+
+[alt_text.card.minor_arcana.swords]
+ace = "A hand emerges from a frenetic cloud of shapes holding a large sword with a crimson blade. A golden crown adorns the tip of the blade, framed by a budding vine and feathered wings."
+page = "A youth apprehensively holds on to a sword, facing away and apparently unready for battle."
+knight = "A mounted knight with a crimson sword charges with drive and energy."
+queen = "A crowned queen is seated on a throne sandwiched between two pillars, grasping a sword in one hand."
+king = "A king, adorned with masks on his shoulders and with a sword in his hand, is seated on a strange throne."
+
