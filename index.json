@@ -35,8 +35,26 @@
       "schema_version": "2.0",
       "slug": "ascii-tarot",
       "version": "2.0"
+    },
+    {
+      "artist": "Nicolas Conver, restored by Yoav Ben-Dov",
+      "attribution": "CBD Tarot de Marseille by Dr. Yoav Ben-Dov, www.cbdtarot.com",
+      "card_count": 78,
+      "cover": "https://raw.githubusercontent.com/arcanaland/reference-decks/refs/tags/marseille/v1.0/marseille/h750/major_arcana/00.webp",
+      "description": "CBD Tarot de Marseille is a faithful reproduction of the traditional Tarot cards. It is based on the standard deck published in Marseille by Nicolas Conver, 1760",
+      "identifier": "land.arcana/deck/cbd-marseille",
+      "license": "CC-BY-NC-SA-3.0",
+      "name": "CBD Tarot de Marseille",
+      "package": {
+        "sha256": "693382ce3629c02bf1b06370f45ef18e1911263a67a7f8340fbdb198ea86d429",
+        "size": 62942688,
+        "url": "https://github.com/arcanaland/reference-decks/releases/download/marseille/v1.0/marseille-1.0.tarotdeck"
+      },
+      "schema_version": "2.0",
+      "slug": "marseille",
+      "version": "1.0"
     }
   ],
   "format": 1,
-  "source_commit": "85a2dd9"
+  "source_commit": "57ebc46"
 }
